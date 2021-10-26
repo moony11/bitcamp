@@ -1,0 +1,33 @@
+클래스 작성 실습
+0. 패키지명 : com.mystudy.phone
+1. 클래스명 : Phone
+2. 속성(필드변수)
+	가. 모델명 : name - String
+	나. 타입 : type - String
+	다. 가로크기 : hsize - int
+	라. 세로크기 : vsize - int
+	마. LCD유무 : hasLCD - boolean
+3. 생성자
+	가. 기본생성자(default Constructor)
+	나. 파라미터값 : 모델명, 타입
+	다. 파라미터값 : 모델명, 타입, LCD유무
+4. 기능(메서드)
+	가. 전화걸기 : call
+		1) 화면출력: "전화걸기" 
+	나. 전화받기 : receiveCall
+		1) 화면출력: "전화받기" 
+	다. 메시지 보내기 : sendSms
+		1) 메시지를 String 타입으로 받아서 보냅니다
+		2) 화면출력: "[메시지전송]" + 메시지내용(전달받은메시지) 
+	라. 메시지 받기 : receiveSms
+		1) 받은 메시지를 String 타입으로 돌려줍니다.(return)
+		2) 화면출력: "[메시지수신]" + 받은메시지
+	마. 전화기 정보 확인 : view
+----------------
+테스트용 클래스 : PhoneMain	
+
+
+
+
+
+
