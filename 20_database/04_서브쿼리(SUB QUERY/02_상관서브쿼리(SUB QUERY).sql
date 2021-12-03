@@ -1,0 +1,102 @@
+/* 상호연관 서브쿼리 (상관서브쿼리) 
+- 메인쿼리의 값을 서브쿼리가 사용하고, 서브쿼리의 결과값을 메인쿼리가 사용 
+- 메인쿼리와 서브쿼리가 서로 조인된 형태로 동작
+*************************/
+-- SELECT 절에 사용된 서브쿼리 
+SELECT O.ORDERID, O.CUSTID, O.BOOKID,
+       (SELECT NAME FROM CUSTOMER WHERE CUSTID = O.CUSTID) CUSTNAME,  --서브쿼리가 단독으로 실행 안됨
+       (SELECT BOOKNAME FROM BOOK WHERE BOOKID = O.BOOKID) BOOKNAME,
+       O.SALEPRICE, O.ORDERDATE
+  FROM ORDERS O 
+;
+
+-- 출판사별 평균 도서가격보다 비싼 책 목록을 구하시오
+
+
+SELECT * 
+  FROM BOOK B,
+       (SELECT AVG(PRICE) AVG_PRICE FROM BOOK) M
+ WHERE B.PRICE >= M.AVG_PRICE
+;
+
+-- 출판사별 평균 도서가격보다 비싼 책 목록을 구하시오
+SELECT * FROM BOOK B ORDER BY PUBLISHER, PRICE;
+-- 굿스포츠 출판사 책중에서 굿스포츠 출판사의 평균 금액보다 비싼 책 
+SELECT * FROM BOOK WHERE PUBLISHER = '굿스포츠';
+SELECT AVG(PRICE) FROM BOOK WHERE PUBLISHER = '굿스포츠';
+
+SELECT *
+  FROM BOOK
+ WHERE PUBLISHER = '굿스포츠' 
+   AND PRICE > (SELECT AVG(PRICE) FROM BOOK WHERE PUBLISHER = '굿스포츠')
+;
+
+----
+-- 메인쿼리의 값을 서브쿼리가 사용하고, 서브쿼리의 결과값을 메인쿼리가 사용 
+SELECT BOOKID, BOOKNAME, PUBLISHER, PRICE
+  FROM BOOK B
+ WHERE PRICE > (SELECT AVG(PRICE) FROM BOOK WHERE PUBLISHER = B.PUBLISHER)
+;
+-- 위 B.PUBLISHER BOOK 안에 출판사별로 돌아가면서 처리해줌
+
+SELECT BOOKID, BOOKNAME, PUBLISHER, PRICE,
+       (SELECT AVG(PRICE) FROM BOOK WHERE PUBLISHER = B.PUBLISHER) AVG  -- 출판사별 평균가
+  FROM BOOK B
+ WHERE PRICE > (SELECT AVG(PRICE) FROM BOOK 
+                WHERE PUBLISHER = B.PUBLISHER)
+;
+
+--------- 조인문 (JOIN문)
+-- 출판사별 평균 도서 가격 ~별(그룹바이)
+SELECT PUBLISHER, AVG(PRICE)
+  FROM BOOK
+ GROUP BY PUBLISHER 
+;
+---
+SELECT * 
+  FROM BOOK B, 
+       (SELECT PUBLISHER, AVG(PRICE) AVG_PRICE
+         FROM BOOK
+        GROUP BY PUBLISHER ) AVG
+ WHERE B.PUBLISHER = AVG.PUBLISHER
+   AND B.PRICE > AVG.AVG_PRICE
+ ORDER BY B.PUBLISHER, B.PRICE
+;
+--------------------------
+
+-- EXISTS: 존재여부 확인시사용(있으면 TRUE)
+-- NOT EXISTS : 존재하지 않으면 TRUE 
+SELECT BOOKNAME FROM BOOK WHERE BOOKNAME LIKE '%축구%';
+SELECT * 
+  FROM BOOK 
+ WHERE BOOKNAME IN (SELECT BOOKNAME FROM BOOK
+                    WHERE BOOKNAME LIKE '%축구%')
+;
+
+SELECT * 
+  FROM BOOK B
+ WHERE EXISTS (SELECT 1 FROM BOOK 
+                    WHERE B.BOOKNAME LIKE '%축구%')
+;
+--------
+-- 주문내역이 있는 고객의 이름과 전화번호를 찾으시오 
+SELECT*
+  FROM CUSTOMER 
+ WHERE CUSTID IN (SELECT USTID FROM ORDERS)
+;
+--==> EXISTS 적용
+SELECT *
+  FROM CUSTOMER C
+ WHERE EXISTS (SELECT 1 FROM ORDERS   -- 1은 중요하지 않음 아무거나 넣어도됨
+               WHERE CUSTID = C.CUSTID)
+;
+
+
+
+
+
+
+
+
+
+
