@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>CSS</title>
+<style>
+    /* absolute 사용시 부모요소에 크기 지정해서 사용
+        1. 부모요소에 크기 지정
+        2. 부모요소에 position 값이 relative 설정
+    */
+    .outer {
+         position: relative;
+        border: 3px solid black;
+        width: 500px; height: 400px;
+        left: 200px;
+        top: 100px;
+    }
+    .absolute {
+        width: 200px; height: 200px;
+        border: 1px solid black;
+        position: absolute;
+    }
+    #div1 {
+        background-color: red;
+        left: 50px; top: 50px;
+    }
+    #div2 {
+        background-color: green;
+        left: 200px; bottom: 50px;
+    }
+    #div3 {
+        background-color: blue;
+        right: 20px;
+        bottom: 20px;
+    }
+</style>
+</head>
+<body>
+    <h2>CSS position : absolute 부모태그와 함께</h2>
+    <div class="outer">
+        <div id="div1" class="absolute">div1</div>
+        <div id="div2" class="absolute">div1</div>
+        <div id="div3" class="absolute">div1</div>
+    </div>
+</body>
+
+</html>

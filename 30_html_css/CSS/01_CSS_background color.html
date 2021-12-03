@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+    h1 { background-color: aqua; }
+    
+    h2 { background-color: brown; }
+    h2 { background-color: yellow; }
+    
+    
+    /* 선택자(.) : class 의미 */
+    .red { background-color: red; }
+    .green { background-color: green; }
+    .yellow { background-color: yellow; }
+    
+    /* 선택자(#) : id를 의미 */
+    #yellow { background-color: yellow; }
+    
+    /* 선택자 우선순위 : id, class, 태그(tag) 
+        선택자에서 구체적이고 상세하게 지정하면 가중치 증가(적용우선순위 높아짐)*/
+    p { background-color: gray; }
+    div > p { background-color: orange; }
+    
+    p.green { background-color: greenyellow; }
+</style>      
+</head>
+<body>
+<!-- CSS문법 : 선택자 { 속성명 : 속성값; [속성명 : 속성값; ...]}
+    작성위치
+    1. HTML 태그안에 작성(속성형태, 인라인방식)
+        style="속성명:속성값; 속성명:속성값;...."
+    2. <head> 태그 내부의 <style> 태그 내에 작성
+        <style>
+            선택자 { 속성명 : 속성값; [속성명 : 속성값; ...]}
+        </style>
+    3. 외부파일 링크 방식(head 태그 안에 선언)
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+-->
+    <h1>CSS 바탕색 지정 : background-color</h1>
+    <h2>H2 태그 : 속성없음</h2>
+    <h2 class="red">H2 태그 : 속성 class="red" 설정</h2>
+    <h2 class="green">H2 태그 : 속성 class="green" 설정</h2>
+    <hr>
+    
+    <h3>배경색 노랗게</h3>
+    <div class="yellow">배경색 노란색(div class="yellow")</div>
+    <hr>
+    
+    <p>일반 P태그(id, class 속성 없는)</p>
+    <p id="yellow" class="green">id 속성을 가진 P태그</p>
+    <p class="yellow">class 속성을 가진 p태그</p>
+    
+    <p>일반 P태그(id, class 속성 없는)</p>
+    <div>
+        <p>div 안에 있는 p태그</p>
+        <p class="green">div 안에 있는 p태그(class="green")</p>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>CSS</title>
+<link href="css/mystyle.css" rel="stylesheet" type="text/css">
+<style>
+    p{
+        background-color: blueviolet;
+        border: 3px solid black;
+    }
+   
+</style>
+</head>
+<body>
+<!-- CSS문법 : 선택자 { 속성명 : 속성값; [속성명 : 속성값; ...]}
+    작성위치
+    1. HTML 태그안에 작성(속성형태, 인라인방식)
+        style="속성명:속성값; 속성명:속성값;...."
+    2. <head> 태그 내부의 <style> 태그 내에 작성
+        <style>
+            선택자 { 속성명 : 속성값; [속성명 : 속성값; ...]}
+        </style>
+    3. 외부파일 링크 방식(head 태그 안에 선언)
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+-->
+    <h1>CSS 바탕색 지정 : background-color</h1>
+    <h2>H2 태그 : 속성없음</h2>
+    <h2 class="red">H2 태그 : 속성 class="red" 설정</h2>
+    <h2 class="green">H2 태그 : 속성 class="green" 설정</h2>
+    <hr>
+    
+    <h3>배경색 노랗게</h3>
+    <div class="yellow">배경색 노란색(div class="yellow")</div>
+    <hr>
+    
+    <p>일반 P태그(id, class 속성 없는)</p>
+    <p id="yellow" class="green">id 속성을 가진 P태그</p>
+    <p class="yellow">class 속성을 가진 p태그</p>
+    
+    <p>일반 P태그(id, class 속성 없는)</p>
+    <div>
+        <p>div 안에 있는 p태그</p>
+        <p class="green">div 안에 있는 p태그(class="green")</p>
+    </div>
+    
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

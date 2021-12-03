@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS menu</title>
+<style>
+    /* nav에 있는 ul 사용해서 메뉴형태 만들기 */
+    nav ul {
+        /* border: 1px solid blue; */
+        list-style-type: none;
+        margin: 0; padding: 0;
+        background-color: #444; 
+        overflow: hidden;
+    }
+    nav li {
+        float: left;
+        border-right: 2px solid #999;
+    }
+    nav a {
+        display: block;
+        padding: 20px 20px;
+        font-size: 1.5rem;
+        color: white;
+        text-decoration: none;
+    }
+    /*
+    nav .active, nav .active:hover {
+        background-color: red;
+    }
+    nav a:hover {
+        background-color: #777;
+    }
+    */
+    nav .active {
+        background-color: red;
+    }
+    nav a:hover:not(.active) {
+        background-color: #777;
+    }
+    nav li:last-child {
+        float: right;
+        border-left: 2px solid #999;
+        border-right: none;
+    }
+</style>      
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+    <div>
+        <ul>
+            <li class="active">사과</li>
+            <li>배</li>
+            <li>복숭아</li>
+        </ul>
+    </div>
+    
+
+</body>
+</html>
+
