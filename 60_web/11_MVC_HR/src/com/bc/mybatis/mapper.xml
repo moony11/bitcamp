@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="HR">
+   <!--전체 직원 목록 조회  -->
+   <select id = "list" resultType="com.bc.model.vo.EmployeeVO">
+      SELECT * FROM EMPLOYEES ORDER BY EMPLOYEE_ID
+   </select>   
+   
+   <!-- 이름으로 검색(조회) -->
+    <select id="fullnameList" parameterType="string" resultType="employee">
+       SELECT * 
+       FROM EMPLOYEES 
+         WHERE FIRST_NAME = INITCAP (#{fullname})
+         OR LAST_NAME = INITCAP(#{fullname})
+      ORDER BY EMPLOYEE_ID
+    </select>
+    
+
+</mapper>
+
+
+
+
+
+
+
+
