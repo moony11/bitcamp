@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+    // 변수선언 키워드(명령어) : var, let, const
+    // 변수명 사용문자 : 영문대소문자, 숫자, _, $
+    // 기본자료형 : 문자열(string), 숫자(number), 불린(boolean),
+    //              undefined(값할당안됨), null
+    var str = "안녕하세요(문자열)";
+    var num = 100;
+    var bool = true;
+    var vNull = null;
+    var undef; // 값 할당이 안된 상태 
+    document.write("문자열 출력 : " + str, "<br>");
+    document.write("숫자값 출력 : " + num, "<br>");
+    document.write("숫자값 출력 : " + num + 1, "<br>");
+    document.write("bool 출력 : " + bool, "<br>");
+    document.write("vNull 출력 : " + vNull, "<br>");
+    document.write("undef 출력 : " + undef, "<br>"); //undefined
+    document.write("<hr>"); 
+    
+    // 변수 저장 타입 확인 : typeof
+    document.write("typeof str : " + typeof str, "<br>");
+    document.write("typeof num : " + typeof num, "<br>");
+    document.write("typeof bool : " + typeof bool, "<br>");
+    document.write("typeof vNull : " + typeof vNull, "<br>");
+    document.write("typeof undef : " + typeof undef, "<br>");
+    document.write("<hr>");
+    
+    // 변수에 고정된 타입의 개념이 없음
+    str = 500; // 변수 저장 타입이 변경됨 : number <- string
+    str = str + 200;
+    document.write(" typeof str : " + str + ", " + typeof str, "<br>");
+    
+    str = true; 
+    document.write(" typeof str : " + str + ", " + typeof str, "<br>");
+    
+    var sum = num + str; // 100 + true ---> 100 : true 값은 1
+    document.write("sum(100 + true) : " + sum, "<br>")
+    
+    sum = num + false; // 100 + false ---> 100 : false 값은 0
+    document.write("sum(100 + false) : " + sum, "<br>")
+    document.write("<hr>");
+    
+    
+    //------------------------------------
+    //변수의 반복선언이 허용됨(var)
+    var sum = 0; //변수 중복선언 및 사용이 가능(var)
+    
+    sum = sum + 10;
+    document.write("sum : " + sum, "<br>");
+    document.write("<hr>");
+    
+    //----------------------------------------
+    // NaN(Not a Number) : 숫자가 아님 - 연산결과가 숫자가 아닌 경우
+    document.write("num + undef : " + (num + undef), "<br>"); //결과 : NaN
+    document.write("num * 'A' : " + (num * 'A'), "<br>"); //결과 : NaN
+    document.write("'AAA' * 'B' : " + ('AAA' * 'B'), "<br>"); //결과 : NaN
+    
+    //자바스크립트에서 오류가 발생하면 이후의 자바스크립트 실행 안됨
+    document.wwwww("자바스크립트 오류발생 코드");
+    document.write("<p>---- JavaScript 끝 --------</p>");
+</script>
+</head>
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>JS function</title>
+<script>
+    // var 선언 변수도 선언문 이전에 사용가능 : var 변수 hoisting
+    // 단, 변수명 선언만 끌어올려짐(hoisting)(데이터는x)
+    document.write("var 선언전 globalVar : " + globalVar, "<br>");
+    
+    var globalVar = "전역변수 globalVar";
+     document.write("var 선언후 globalVar : " + globalVar, "<br>");
+    document.write("<hr>");
+    // function은 사용코드 이후에 작성이 되어 있어도 사용 가능(hosting)
+    dispalyMsg();
+    
+    function dispalyMsg(param){
+        document.write("function dispalyMsg() ~~~~", "<br>");
+        document.write("-->> 파라미터 param : " + param, "<br>");
+        
+        document.write("-->> globalVar : " + globalVar, "<br>");
+        
+        // 함수 내에서 선언된 var 변수는 지역변수 (사용범위 함수 내에서만 사용가능)
+        var localVar = "function 내에서만 사용되는 지역변수";
+        document.write("-->> localVar : " + localVar, "<br>");
+        
+        // 함수 내에서 var키워드 없이 선언된 변수 : 전역변수
+        //(권장) 명시적으로 var 사용(전역변수 function 외부에서 선언)
+        localNoVar = "function 내에서 var키워드 없이 선언된 - 전역변수";
+        document.write("function 내부>> localNoVar : " + localNoVar, "<br>");
+        
+        document.write("function dispalyMsg() 끝 --------", "<br>");
+        
+    }
+    document.write(">>>>>>>>> function선언문 뒤 --------------", "<br>");
+   // document.write(">> function 외부 localVar : " + localVar, "<br>");
+    document.write("function 외부>> localNoVar : " + localNoVar, "<br>");
+    
+    dispalyMsg();
+    document.write("<hr>");
+    
+    dispalyMsg("####param~~~~!!!!");
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

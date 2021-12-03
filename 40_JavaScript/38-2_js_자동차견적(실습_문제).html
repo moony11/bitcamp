@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>자동차 견적</title>
+<style>
+    #carZone {
+        width: 600px;
+        margin: auto;
+        /*border: 1px solid black;*/
+    }
+    h1 { text-align: center; }
+    #car {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    #car th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+    #car thead { background-color: gray; }
+    #totalTxt { background-color: gray; }
+    #total {
+        border: none;
+        text-align: center;
+        font-size: 1.5em;
+        background-color: white;
+    }
+</style>  
+<script>
+    //(실습)옵션선택 여부에 따라 차량금액 변경처리
+    let totalTag; //차량금액 표시할 HTML 태그 객체 저장
+    let totalValue = 0; //차량금액 + 옵션금액 저장
+    window.onload = function(){
+        totalTag = document.getElementById("total");
+        totalValue = parseInt(totalTag.value);
+        console.log("totalValue : " + totalValue);
+        
+        /*document.getElementById("opt1").onclick = function(){
+            //콜백함수 내의 this는 이벤트 발생객체
+            compute(this);
+        };*/
+        /*
+        // ID로 각각 찾아서 이벤트 연결
+        document.getElementById("opt1").onclick = compute;
+        document.getElementById("opt2").onclick = compute;
+        document.getElementById("opt3").onclick = compute;*/
+        
+        // class 속성으로 찾아서 이벤트 연결
+        let opts = document.getElementsByClassName("opt");
+        /*for (let i = 0; i < opts.length; i++) {
+            opts[i].onclick = compute;
+        }*/
+        for (let opt of opts) {
+            //opt.onclick = compute;
+            opt.onchange = compute;
+        }
+    };
+    
+    function compute() {  
+        console.log("this.id : " + this.id);
+        let optValue = parseInt(this.value);
+        console.log("optValue : " + optValue);
+            
+        if (this.checked) {
+            totalValue += optValue;
+        } else {
+            totalValue -= optValue;
+        }
+        //화면에 결과 값 표시
+        totalTag.value = totalValue;
+    }
+</script>
+</head>
+<body>
+<div id="carZone">   
+	<h1>자동차 견적</h1>
+    <p><img src="images/car1.jpg" alt="자동차이미지"></p>
+    <table id="car">
+        <colgroup>
+            <col width="50%">
+            <col width="30%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>옵션</th>
+                <th>추가가격</th>
+                <th>선택여부</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>인조가죽시트</td>
+                <td>300000</td>
+                <td>
+                    <input type="checkbox" value="300000" id="opt1" class="opt" name="opt1">
+                </td>
+            </tr>
+            <tr>
+                <td>네비게이션</td>
+                <td>400000</td>
+                <td>
+                    <input type="checkbox" value="400000" id="opt2" class="opt" name="opt2">
+                </td>
+            </tr>
+            <tr>
+                <td>썬루프</td>
+                <td>500000</td>
+                <td>
+                    <input type="checkbox" value="500000" id="opt3" class="opt" name="opt3">
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td id="totalTxt">차량금액(옵션포함)</td>
+                <td colspan="2">
+                    <input type="text" value="20000000" id="total" readonly>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+    
+    
+        
+	<br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>JS</title>
+<script>
+    /* Math 내장객체
+    Math.PI : 파이값(3.141592...)
+    Math.abs(숫자) : 절대값 반환
+    Math.max(숫자1, 숫자2, ..., 숫자n) : 최대값 반환
+    Math.min(숫자1, 숫자2, ..., 숫자n) : 최소값 반환
+    Math.pow(숫자, 제곱값) : 숫자의 거듭제곱 값 반한
+    Math.random() : 0~1 사이의 실수형 난수반환(0:포함, 1: 제외)
+    Math.ceil(숫자) : 소수점 첫째자리에서 무조건 올림
+    Math.round(숫자) : 소수점 첫째자리에서 반올림
+    Math.floor(숫자) : 소수점 첫째자리에서 무조건 버림(소수점이하 삭제)
+    ****************************/
+    document.write("Math.PI : " + Math.PI, "<br>");
+    
+    const MATH_PI = 3.14;
+    // MATH_PI = 3.141592653589793; //const 설정 값은 변경할 수 없음
+    document.write("MATH_PI : " + MATH_PI, "<br>");
+    
+    //최대값 구하기
+    var maxNum = Math.max(10, 5, 6, 8, 100);
+    document.write("Math.max(10, 5, 6, 8, 100) : " + maxNum, "<br>");
+    
+    //최소값 구하기
+    var minNum = Math.min(10, 5, 6, 8, 100);
+    document.write("Math.min(10, 5, 6, 8, 100) : " + minNum, "<br>");
+    
+    var num1 = 2.5234;
+    var num2 = 2.0234;
+    //반올림
+    var roundNum = Math.round(num1);
+    document.write("num1 : " + num1, "<br>");
+    document.write("Math.round(num1) : " + roundNum, "<br>");
+    
+    roundNum = Math.round(num2);
+    document.write("num2 : " + num2, "<br>");
+    document.write("Math.round(num2) : " + roundNum, "<br>");
+    
+    //올림 - 소수점 이하에 0이 아닌 값이 있으면 올림 처리
+    var ceilNum = Math.ceil(num2);
+    document.write("num2 : " + num2, "<br>");
+    document.write("Math.ceil(num2) : " + ceilNum, "<br>");
+    document.write("Math.ceil(num2) : " + Math.ceil(num2), "<br>");
+    
+    //버림
+    num2 = 2.9999999999999;
+    var floorNum = Math.floor(num2);
+    document.write("num2 : " + num2, "<br>");
+    document.write("Math.floor(num2) : " + floorNum, "<br>");
+    document.write("Math.floor(num2) : " + Math.floor(num2), "<br>");
+    
+    //제곱값 구하기
+    var powNum = Math.pow(2, 8);
+    document.write("Math.pow(2, 8) : " + powNum, "<br>");
+    document.write("Math.pow(2, 16) : " + Math.pow(2, 16), "<br>");
+    document.write("Math.pow(2, 32) : " + Math.pow(2, 32), "<br>");
+    document.write("<hr>");
+    
+    //Math.random() : 0이상 1 미만 실수형 난수반환
+    var randomNum = Math.random();
+    document.write("Math.random() : " + randomNum, "<br>");
+    document.write("Math.random() : " + Math.random(), "<br>");
+    document.write("Math.random() : " + Math.random(), "<br>");
+    document.write("<hr>");
+    
+    for (let i = 0; i < 100; i++) {
+        randomNum = Math.trunc(Math.random() * 10); //0 ~9
+        document.write("Math.trunc(Math.random() * 10) : " + Math.trunc(Math.random() * 10), "<br>");
+    }
+    
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

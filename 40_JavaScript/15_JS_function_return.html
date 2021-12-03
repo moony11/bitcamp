@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>JS: function return</title>
+<script>
+    // 리턴값이 있는 함수 (function)
+    // function 함수명(파라미터) { return 리턴값; }
+    function plus(a, b) {
+        document.write(">> a:" + a + ", b : " + b, "<br>");
+        return a + b;
+    }
+    let sum = plus(100, 200); // 호출부
+    document.write("plus(100, 200) : " + sum, "<br>");
+    document.write("plus(100, 200) : " + plus(100, 200), "<br>");
+    document.write("plus(100) : " + plus(100), "<br>");
+    document.write("plus() : " + plus(), "<br>");
+    document.write("<hr>");
+    
+    //===================================
+    // function 은 중복선언시(동일이름) 마지막 선언된 함수가 사용된다. 
+    function test(){    
+        document.write(">>> test() 함수 실행 ", "<br>");
+    }
+    test();
+    
+    function test(){      
+        document.write(">>> test() 함수 재정의 실행 ", "<br>");
+    }
+    
+    function test(param){
+        document.write(">>> test(param) 함수 실행 : " + param, "<br>");
+    }
+    
+    test("파라미터~~");
+    test("파라미터1", "파라미터2");
+    document.write("<hr>");
+    
+    //========================================================
+    // 함수명과 동일한 이름으로 변수 선언시 함수는 사용할 수 없게된다. 함수기능 상실
+    var test = "함수명과 동일한 이름의 변수 사용";
+    document.write("test : " + test, "<br>");
+    
+    // test("홍길동"); // test is not a function 타입에러 
+    document.write("<p> =========JavaScript 끝.... </p>");
+    
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

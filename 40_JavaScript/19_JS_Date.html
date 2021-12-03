@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>JS : Date</title>
+<script>
+    /* 내장객체 Date
+    getFullYear() : 년도 4자리
+    getMonth() : 월(0~11) - 0:1, 11:12월
+    getDate() : 일
+    getDay() : 요일(0:일, 1:월, ...., 6:토)
+    
+    getHours() : 시간
+    getMinutes() : 분
+    getSeconds() : 초
+    
+    getMilliseconds() :밀리초(1/1000 초)
+    getTime() : 밀리초 기준 1970년 1월 1일 부터 경과시간(밀리초 기준)
+    ------------------------------------------------------
+    Date 객체를 생성하는 방법 4가지
+    new Date();
+    new Date(milliseconds);
+    new Date(datestring); datedtring : "2021/09/10 17:36:10"
+    new Date(year, month, date, hours, minutes, seconds, milliseconds);
+    
+    */
+    var dt = new Date();
+    document.write("new Date() : " + dt, "<br>");
+    
+    // 년월일 구하기 
+    var yyyy= dt.getFullYear();
+    var mm = dt.getMonth() + 1; // 현재 9월 - 리턴값 8이니까 더하기 1해주기
+    var dd = dt.getDate();
+    var yyyymmdd = yyyy + "/" +(mm < 10 ? "0" + mm : mm) + "/" + dd;
+    document.write("년/월/일 : " + yyyymmdd, "<br>");
+    
+    // 시분초 구하기
+    var hh = dt.getHours();
+    var mi = dt.getMinutes();
+    var ss = dt.getSeconds();
+    var hhmiss = hh + ":" + mi + ":" + ss;
+    document.write("시:분:초 - " + hhmiss, "<br>");
+    
+    // --------------------
+    // 초 미만 값 : 밀리초 (1/1000 초 단위)
+    var millisec = dt.getMilliseconds();
+    document.write("밀리초 : " + millisec, "<br>");
+    document.write("<hr>");
+    
+    //===============================
+    // 1초 : 1000 밀리초
+    // 1분 : 60초 * 1000 (1분에 대한 밀리초)
+    // 1시간 : 60분 * (60초 * 1000) (1시간에 대한 밀리초)
+    // 1일 : 24시간 * (60분 * 60초 * 1000) 
+    var time = dt.getTime();
+    document.write("dt.getTime() : " + time, "<br>");
+    
+    // 1970년 1월 1일부터 경과한 날짜수 구하기
+    //                 초    분  시간  일
+    var days = time / 1000 / 60 / 60 / 24;
+    days = time / 24 / 60 / 60 / 1000;
+    days = time / (24 * 60 * 60 * 1000); 
+    days = time / (86400 * 1000); 
+    days = time / 86400000; // 전부 결과 같음
+    document.write("하루 분 24 * 60 : " + (24 * 60), "<br>");
+    document.write("하루 초 24 * 60 * 60 : " + (24 * 60 * 60), "<br>");
+    document.write("1970년 1월 1일부터 경과한 날짜수 : " + days, "<br>");
+    document.write("<hr>");
+    
+    
+   //============================================
+    /*  날짜 값 설정
+    setFullYear() : 년도 4자리
+    setMonth() : 월(0~11) - 0:1월, 11:12월
+    setDate() : 일
+    setDay() : 요일(0:일, 1:월, ..., 6:토)
+    
+    setHours() : 시간
+    setMinutes() : 분
+    setSeconds() : 초
+    
+    setMilliseconds() : 밀리초(1/1000 초)
+    setTime() : 1970년 1월 1일 부터 경과시간(밀리초 기준)
+    **************************/
+    var dt1 = new Date();
+    var dt2 = new Date(2021, 8, 13); //2021-09-13
+    document.write("new Date() : " + dt1, "<br>");
+    document.write("new Date(2021, 8, 13) : " + dt2, "<br>"); 
+    
+    //연산처리
+    dt2.setDate(15);
+    var diffDate = dt2 - dt1;
+    document.write("날짜연산결과 : " + diffDate, "<br>");
+    
+    //날짜 계산값을 일수로 환산
+    var durDays = diffDate / (24 * 60 * 60 * 1000);
+    document.write("날짜차이(일수) : " + durDays, "<br>");
+    
+    //날짜변경
+    dt2.setMonth(9); //10월로 변경
+    dt2.setDate(22); //22일로 변경
+    dt2.setHours(13); //오후 1시
+    dt2.setMinutes(30);
+    dt2.setSeconds(15);
+    document.write("dt2 : " + dt2, "<br>"); 
+    
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

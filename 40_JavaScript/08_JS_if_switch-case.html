@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>JS: if, switch~case</title>
+<script>
+    //if (조건식) {}
+    //if (조건식) {} else {}
+    //if (조건식) {} else if {} else if {} else {}
+    if (true) {
+        document.write("if문 조건식의 결과가 true인 경우 출력", "<br>");
+    }
+    
+    let bool = confirm("<확인>선택 - true 출력, <취소>선택 false 출력");
+    if (bool) {
+        document.write("확인 선택 - true", "<br>");
+    } else {
+        document.write("취소 선택 - false", "<br>");
+    }
+    document.write("<hr>");
+    
+    //========================
+    /* (실습) 점수를 입력받고 점수에 따라 평가하고 결과를 화면 표시
+    90이상: A, 80이상: B, 70이상: C, 70미만: D
+    출력형태 : 점수 90 - 평가결과: A
+    //if (조건식) {} else if {} else if {} else {}
+    **********************************/
+    document.write(" '100' > '20' : " + ('100' > '20'), "<br>"); //false : 문자열 비교
+    document.write(" '100' > 20 : " + ('100' > 20), "<br>"); //true : 숫자타입 형변환 후 비교
+    document.write("<hr>");
+    
+    var jumsu = prompt("점수를 입력하세요(0~100)", 0);
+    document.write("isNaN(" + jumsu + ") : " + isNaN(jumsu), "<br>");
+    document.write("입력값 : -" + jumsu + "-", "<br>");
+    
+    let result = "평가안됨";
+    //isNaN() : 숫자가 아니냐? false값 - 숫자, '', true/fasle, null
+    if (isNaN(jumsu) || jumsu === "" || jumsu === null) { //숫자가 아니면
+        result = "숫자가 아님1";
+    } else if (jumsu < 0 || jumsu > 100) {
+        result = "정상범위(0~100) 아님";
+    } else if (jumsu >= 90) {
+        result = "A";
+    } else if (jumsu >= 80) {
+        result = "B";
+    } else if (jumsu >= 70) {
+        result = "C";
+    } else if (jumsu >= 0){
+        result = "D";
+    } else {
+        result = "숫자가 아님";
+    }
+    document.write("<h3>점수 : " + jumsu + " - 평가결과: " + result + "</h3>");
+    document.write("<hr>");
+    
+    //=========================================
+    //switch ~ case 분기문
+    let divJumsu = Math.floor(jumsu / 10); // 88 / 10 --> 8.8 --> 8
+    switch (divJumsu) {
+        case 10 : 
+            //result = "A";
+            //break;
+        case 9 :
+            result = "A";
+            break;
+        case 8 :
+            result = "B";
+            break;
+        case 7 :
+            result = "C";
+            break;
+        default : 
+            result = "D";
+            break;
+    }
+    document.write("<h3>점수 : " + jumsu + " - 평가결과2: " + result + "</h3>");
+    document.write("<hr>");
+    
+    document.write("<h3>--- JavaScript 끝 -----</h3>");
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

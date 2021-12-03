@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>JS while do-while</title>
+<script>
+    // while (조건식){}
+    // do {} while (조건식);
+    //--------------------------------
+    // while문으로 1~10까지의 합 구하기
+    let num = 1; // 1~10까지 1씩 증가
+    let sum = 0;
+    while (num <= 10) {
+        sum += num; // sum = sum + num
+        console.log("num : " + num + ", sum : " + sum); 
+        document.write("num : " + num + ", sum : " + sum, "<br>");
+        num++;
+    }
+    document.write("1~10까지의 합 : " + sum, "<br>");
+    document.write("<hr>");
+    console.log("--------------------------------");
+    
+    //(실습) 위의 while 문과 동일한 결과를 만드는 while문 작성 
+    // while 문으로 1~10 까지의 합 구하기
+    sum = 0;
+    num = 0;
+//    while(num <= 10){
+//        sum += num;
+//        console.log("num : " + (num + 1)+ ", sum : " + sum);
+//        num++;
+//    }
+    while(num < 10){
+        num++;
+        sum += num;
+        console.log("num : " + num + ", sum : " + sum);
+    }
+    
+    document.write("1~10까지의 합 : " + sum, "<br>");
+    document.write("<hr>");
+    console.log("--------------------------------");
+    //===============================
+    //(실습) do~while 문으로 1~10까지의 합 구하기
+    sum = 0;
+    num = 1;
+    
+    do{
+        sum += num;
+        console.log("num : " + num + ", sum : " + sum);
+        num++;
+    }
+    while (num <= 10); 
+    document.write("1~10까지의 합 : " + sum, "<br>");
+    document.write("<hr>");
+    
+    //==========================================
+    // 반복문 제어 : break, continue
+    // break : 반복문 종료하고 빠져나감
+    // continue : continue 문 이후의 실행문을 실행하지 않고 다음 반복 진행
+    document.write("<h2>---- break, continue ----------</h2>");
+    document.write("<h3>---- break ----</h3>");
+    num = 1;
+    while(num <= 10){
+          document.write("num : " + num, "<br>");
+        if(num == 5) {
+            document.write("break 문 만나서 반복종료 !!!", "<br>");
+            break;
+        }
+        num++;
+          }
+    document.write(">> 반복문 종료 후 문장");
+
+    document.write("<h3>---- continue ----</h3>");
+    num = 0;
+    while(num < 10){
+         num++;
+        if(num == 5) {
+            document.write("continue 문 만나서 5만 출력안함 !!!", "<br>");
+            continue;
+        }
+        document.write("num : " + num, "<br>");
+        
+    }
+    document.write(">> 반복문 종료 후 문장");
+    document.write("<hr><hr>");
+    
+    //============================
+    //중첨 반복문 사용시 모든 반복문 빠져나가기
+    // 외부 반복문에 라벨(이름) 지정해서 사용
+    for (let i = 1; i <= 5; i++) {
+        for (let k = 11; k <= 15; k++){
+            if(i == 4 && k == 13){
+                break;
+            }
+            document.write("i : " + i + ", k : " + k , "<br>");
+        }
+        document.write("--------------", "<br>");
+    }
+    document.write(">> 반복문 종료 후 문장");
+    document.write("<hr>");
+    
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

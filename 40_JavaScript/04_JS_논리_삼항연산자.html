@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>JS 논리, 삼항연산자</title>
+<script>
+    // 논리연산자 : &&(AND), ||(OR), !(NOT)
+    document.write("<h3> 논리연산자 : &&(AND), ||(OR), !(NOT)</h3>");
+    
+    document.write("20>10 && 300>200 : " + (20>10 && 300>200), "<br>");
+    document.write("20>10 && 300<200 : " + (20>10 && 300<200), "<br>");
+    document.write("20<10 && 300>200 : " + (20<10 && 300>200), "<br>");
+    document.write("20<10 && 300<200 : " + (20<10 && 300<200), "<br>");
+    document.write("<hr>");
+    
+    document.write("20>10 || 300>200 : " + (20>10 || 300>200), "<br>");
+    document.write("20>10 || 300<200 : " + (20>10 || 300<200), "<br>");
+    document.write("20<10 || 300>200 : " + (20<10 || 300>200), "<br>");
+    document.write("20<10 || 300<200 : " + (20<10 || 300<200), "<br>");
+    document.write("<hr>");
+    
+    document.write("!true : " + !true, "<br>");
+    document.write("!(20>10 && 300>200) : " + !(20>10 && 300>200), "<br>");
+    
+    document.write("!false : " + !false, "<br>");
+    document.write("!(20<10 || 300<200) : " + !(20<10 || 300<200), "<br>");
+    
+    // 삼항연산자 : 조건식 ? 실행문1 : 실행문;
+    document.write("<h3>삼항연산자 : 조건식 ? 실행문1 : 실행문</h3>");
+    var a = 100;
+    var b = 50;
+    document.write("a: " + a + ", b : " + b, "<br>");
+    var result = (a > b) ? "a > b" : "a <= b"; 
+    document.write("결과값 : " + result, "<br>");
+</script>
+</head>
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

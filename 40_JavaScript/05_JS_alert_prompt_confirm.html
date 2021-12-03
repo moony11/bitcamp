@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>JS : alert, prompt, confirm</title>
+<script>
+    // alert, prompt, confirm : window 객체에 있는 함수(메소드)
+    // alert : 브라우저 창에 메시지 표시
+    window.alert("자바스크립트 진행중!");
+    alert("window.alert에서 window는 생략가능");
+    
+    //prompt : 메시지 창으로 부터 값을 입력 받을 떄 사용
+    //확인 : 입력값 사용 - 입력된 값이 리턴
+    // 취소 : 입력값 사용안함 - null 리턴
+    var input = prompt("[prompt] 이름을 입력하세요 \n(반드시 입력하세요)", "무명");
+    alert("입력받은 값 : -" + input + "-");
+    
+    // prompt를 통해서 입력된 값은 모두 문자열(string) 처리됨
+    var num = prompt("[prompt] 숫자를 입력하세요", 100);
+    num = num + 111;
+    alert("연산결과값 : " + num); // 100111
+    
+    // 문자열 --> 숫자타입 전환 후 계산처리
+    num = prompt("[prompt] 숫자를 입력하세요 ", 100);
+    num = parseInt(num) + 111; // 문자열 처리
+    alert("숫자형식 변환 후 연산결과 값 : " + num);
+    
+    //====================================
+    //confirm : 메시지 창을 띄우고, 사용자의 의견 묻기
+    // 확인 : true, 취소 : false 값을 리턴 
+    var answer = confirm("[confirm] 데이터를 삭제할까요?");
+    alert("답변결과 : " + answer);
+    if(answer){
+        alert(">>> 데이터를 삭제합니다.");
+    } else {
+        alert(">>> 데이터 삭제작업을 취소합니다.");
+    }
+</script>
+</head>
+<body>
+    <h1>자바스크립트 진행중~~~~</h1>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

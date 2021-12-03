@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Array forEach문</title>
+<script>
+    /* 배열(Array) 메소드 forEach()
+    배열.forEach(콜백함수);
+    배열.forEach(function(element, index, array) { });
+    - 첫번째 파라미터(element) : 배열요소(필수)
+    - 두번쨰 파라미터(index) : 인덱스번호(선택사항)
+    - 세번째 파라미터(array) : 배열객체(선택사항) 
+    *************************************************/
+    var arr = ["사당", "교대", "방배", "강남"];
+    document.write("배열 arr : " + arr, "<br>");
+    //----------------
+    // 배열값 사용하기(요소만 받아서 처리)
+    arr.forEach(function(element){
+        document.write(element, "<br>");
+    });
+    document.write("배열 arr : " + arr, "<br>");
+    document.write("<hr>");
+    
+    //--------------------------
+    // 배열 요소(데이터)와 인덱스 사용
+    document.write("배열 arr(원본) : " + arr, "<br>"); // ["사당", "교대", "방배", "강남"]
+    arr.forEach(function(element, index) {
+        arr[index] = element + "역";
+    });
+    document.write("forEach 실행 후 arr : " + arr, "<br>");
+    document.write("<hr>");
+    
+    //--------------------------
+    document.write("배열 arr(원본) : " + arr, "<br>");
+    arr.forEach(function(value, idx, arrObj) {
+        document.write("value: " + value, "<br>");
+        document.write("idx : " + idx, "<br>");
+        document.write("arrObj(전): " + arrObj, "<br>");
+        
+        arrObj[idx] = value + idx;
+        document.write("arrObj(후) : " + arr, "<br>");
+        document.write("--------------------", "<br>");
+        
+    });
+    document.write("forEach 실행 후 arr : " + arr, "<br>");
+    document.write("<hr>");
+    
+    //=============================
+    function arrCallback(element, index, array) {
+        array[index] = index + ": " + element;
+    }
+    document.write("forEach 실행 전 arr : " + arr, "<br>");
+    arr.forEach(arrCallback); // 선언된 함수를 콜백함수로 전달
+    document.write("forEach 실행 후 arr : " + arr, "<br>");
+    document.write("<hr>");
+    
+    function arrCallback2(element, index, array) {
+        array[index] = element + "-" + index;
+    }
+    document.write("forEach 실행 전 arr : " + arr, "<br>");
+    arr.forEach(arrCallback2); // 선언된 함수를 콜백함수로 전달
+    document.write("forEach 실행 후 arr : " + arr, "<br>");
+    
+    
+</script>
+</head>
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
