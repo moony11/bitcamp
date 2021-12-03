@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>table 동적생성</title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    //(실습) 행과 열 값을 읽어서 테이블 생성하기
+    // val() 메소드 : value 값 읽기, 설정하기 
+    // 1. <테이블생성>버튼에 클릭이벤트 연결 
+    // 2. input 태그값 읽어오기(행, 열)
+    // 3. 행, 열 값에 맞추어 table 태그 작성
+    // 4. 원하는 위치(#myDiv)에 table 태그 추가 (html() 사용)
+    $(function(){
+        // 1. <테이블생성>버튼에 클릭이벤트 연결 
+       $("#btn").on("click", function(){
+            //2. input 태그 값 읽어오기(행, 열)
+            let rowCnt = $("#row").val();
+            //row = document.getElementById("row").value;
+            let colCnt = $("#col").val();
+            console.log("rowCnt: " + rowCnt + ", colCnt: " + colCnt);
+            
+            //3. 행, 열 값에 맞추어 table 태그 작성
+            let htmlTag = "<table>";
+            htmlTag += "<thead>";
+            htmlTag += "<tr>";
+            for (let i = 1; i <= colCnt; i++) {
+                htmlTag += "<th>항목" + i + "</th>";
+            }
+            htmlTag += "</tr>";
+            htmlTag += "</thead>";
+            
+            htmlTag += "<tbody>";
+            for (let row = 1; row <= rowCnt; row++) {
+                htmlTag += "<tr>";
+                for (let col = 1; col <= colCnt; col++) {
+                    htmlTag += "<td>데이터 " + row + ", " + col + "</td>";
+                }
+                htmlTag += "</tr>";
+            }
+            htmlTag += "</tbody>";
+            htmlTag += "</table>";
+            
+            $("#myDiv").html(htmlTag);
+        });
+    });
+    function createTB(row, col){
+        let tag = "<table><thead>";
+        tag += "<tr>";
+            
+        for(let i = 1; i <= col; i++) {
+            tag += "<th>항목 " + i +"</th>";
+        }
+        tag += "</tr>";
+        tag += "</thead>";
+            
+        tag += "<tbody>";
+        for(let i = 1; i <= row; i++) {
+            tag += "<tr>";
+            for(let k = 1; k <= col; k++) {
+                tag += "<td>데이터" + i + "," + k +"</td>";
+            }
+            tag += "</tr>";        
+        }
+            
+        tag += "</tbody>";
+        tag += "</table>";   
+        $("#myDiv").html(tag); 
+    };
+</script>
+<style>
+    table { border: 1px solid black; }
+    th, td { border: 1px solid black; }
+    th { background-color: gray; }
+    #myDiv { background-color: yellow; }
+</style>
+</head>
+<body>
+    <h2>테이블 동적 생성</h2>
+    <input type="text" id="row" value="2">행 &nbsp;
+    <input type="text" id="col" value="3">열 &nbsp;
+    <button id="btn">테이블생성</button>
+    <hr>
+    <div id="myDiv">
+        동적으로 테이블 생성할 영역
+    </div>
+    
+    <hr><hr>
+    
+    <div>
+        <h3>(참고)테이블 형태(th제외하고 2행 3열 테이블)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>항목1</th>
+                    <th>항목2</th>
+                    <th>항목3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>데이터1,1</td>
+                    <td>데이터1,2</td>
+                    <td>데이터1,3</td>
+                </tr>
+                <tr>
+                    <td>데이터2,1</td>
+                    <td>데이터2,2</td>
+                    <td>데이터2,3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+
+</html>

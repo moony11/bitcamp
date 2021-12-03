@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>선택자 first,last,even,odd</title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $().ready(function(){
+/*  
+        // 첫번째 요소 찾기
+        $("ul>li").css("color", "red");
+        $("div:first").css("color", "red");
+        
+        $("li:first").css("background-color", "green");
+        
+        // :last - 마지막 요소 찾기
+        $("div:last").css("color", "purple");
+      
+        //---------------------------
+        // :odd - 홀수요소, :even - 짝수요소
+        // li 태그 중 홀수 요소 
+        //$("li:odd").css("border", "2px solid red");
+        // li 태그 중 짝수 요소 
+        //$("li:even").css("border", "2px dashed blue");
+        
+        
+        //===============================
+        // 자녀태그(>)
+        // $("ul>li").css("border", "2px solid blue");
+        
+        //$("body > ul > li").css("border", "2px solid green");
+        
+        // 자녀태그, 자손태그 
+        $("body>ul ul>li").css("border", "2px dotted red");
+        $("body>ul ul>li").css("font-size", "1.5rem");
+        
+        //===============================
+        // CSS 다중 설정
+        // 방법 1 : 매번 객체를 찾아서 스타일 적용
+        // 객체를 찾는 행위를 3번 실행
+        $("#txt").css("background-color", "yellow");
+        $("#txt").css("font-size", "1.5rem");
+        $("#txt").css("border", "2px solid black");
+
+        // 찾는 행위를 1번만 실행
+        let $txt = $("#txt"); // 제이쿼리 객체를 변수에 저장 - 변수명에 앞에 $ 붙이기
+        $txt.css("background-color", "yellow");
+        $txt.css("font-size", "1.5rem");
+        $txt.css("border", "2px solid black");
+      
+        //----------------
+        // 방법2 : 체이닝 기법
+        
+         $("#txt").css("background-color", "yellow")
+                  .css("font-size", "1.5rem")
+                  .css("border", "2px solid black");
+*/ 
+        // 방법3 : css 값으로 전달
+        $("#txt").css({
+            "background-color": "yellow",
+            "font-size": "1.5rem",
+            "border": "2px solid black"
+        });
+        
+    })
+</script>
+    
+<style>
+        li { margin: 10px 0; }
+</style>
+</head>
+<body>
+    <div class="red">
+        <h3>div-h3영역1</h3>
+    </div>
+    <div>div-영역2</div>
+    <div>div-영역3</div>
+    <div>div-영역4</div>
+    
+    <span id="txt">span 텍스트 영역</span>
+    
+    
+    <ul>
+        <li>Java</li>
+        <li>Servlet JSP
+            <ul>
+                <li>Servlet</li>
+                <li>JSP
+                    <ul>
+                        <li>EL</li>
+                        <li>JSTL</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Spring</li>
+    </ul>
+    <div>div 마지막 / body 직전</div>
+    
+    
+    
+</body>
+
+</html>

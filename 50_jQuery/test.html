@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!--폰트어섬추가 -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/login.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.wrap{height: 810px;}
+
+.button-box{   
+	text-align : center;
+	display:flex;
+	justify-content: center;
+}
+
+.btn01{
+    width : 130px;
+	margin : 0 0;
+	margin-top : 20px;
+
+}
+.inputag{
+	display : flex;
+}
+
+.panel-body #email02{
+	margin-top:30px;
+	width : 165px;
+}
+
+.panel-body p{
+	margin-top: 300px;
+}
+
+
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+
+  border: 1px solid #015B28;
+  float: left;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+}
+
+.tablink:hover {
+  background-color: #015B28;
+  color: white;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<button class="tablink" onclick="openPage('mail', this, '#f7f7f7')"id="defaultOpen">Email</button>
+<button class="tablink" onclick="openPage('phone', this, '#f7f7f7')">Phone</button>
+
+<div id="mail" class="tabcontent">
+<input type="text" id="nameId" class="input form-control" name="name" placeholder="이름">
+<br>
+    <div class="inputag">
+        <input type="text" id="emailId" name="emailId" class="input form-control"  placeholder="EMAIL" >
+        <div style="margin: 7px 10px 10px 10px;">@</div> 
+        <input type="text" id="inputMail" name="email_domain" class="input form-control">
+        <select name="emailBox" id="email02" class="input form-control">
+            <option value="" class="pickMail">이메일 선택</option>
+            <option value="directly">직접입력</option>
+            <option value="naver.com">naver.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="daum.net">daum.net</option>
+            <option value="hanmail.net">hanmail.net</option>
+            <option value="nate.com">nate.com</option>
+        </select>
+    </div>
+</div>
+
+<div id="phone" class="tabcontent">
+    <input type="text" id="nameId" class="input form-control" name="name" placeholder="이름">
+    <br>
+    <div class="inputag">
+            <input type="text" id="phone1" name="phone1" 
+                class="input form-control phone" maxlength="3" required
+                placeholder="000"> 
+                <div style="margin: 7px 10px 10px 10px;">-</div>
+            <input type="text" id="phone2" name="phone2" 
+                class="input form-control phone" maxlength="4" required
+                placeholder="0000"> 
+                <div style="margin: 7px 10px 10px 10px;">-</div>
+            <input type="text" id="phone3" name="phone3" 
+                class="input form-control phone" maxlength="4" required
+                placeholder="0000">	
+            <input type="hidden" id="phoneNum" name="phone">
+    </div>
+    
+</div>
+
+
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+    tablinks[i].style.color = "black";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = "#015B28";
+  elmnt.style.color = "white";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>태그추가</title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        // prepend() : 자녀태그 추가 - 맨 앞에
+        $("#myDiv").prepend("<p>(앞1)반갑습니다(prepend)</p>")
+        $("#myDiv").prepend("<p>(앞2)반갑습니다(prepend)</p>")
+        // append() : 자녀태그 추가 - 맨 뒤에
+        $("#myDiv").append("<p>(뒤1)반갑습니다(append)</p>")
+        $("#myDiv").append("<p>(뒤2)반갑습니다(append)</p>")
+        
+        //----------------------------------
+        // before() after() : 전과 후에 태그 추가
+        $("#myDiv").before("<p>(#1)반갑습니다(before)</p>")
+        $("#myDiv").before("<p>(#2)반갑습니다(before)</p>")
+        
+        $("#myDiv").after("<p>(#1)반갑습니다(after)</p>")
+        $("#myDiv").after("<p>(#2)반갑습니다(after)</p>")
+        
+        //--------------------
+        $("h2").before("<h1>개발자 과정</h1>");
+        $("h2").after("<p>(웹프로그래머 양성 과정)</p>");
+        
+        //================================
+        // wrap() : 바깥쪽에서 감싸는 태그 추가 
+        $("h2").wrap("<em>");
+        
+        // <a> 태그를 목록(li) 태그로 감싸기, ul에 넣기 
+        $("a").wrap("<li class='menuList'>");
+        $("li:first").before("<ul id='menu'>");
+        $("#menu").html($(".menuList")); // 모든 li 태그를 ul 태그에 넣기
+    })
+</script>
+<style>
+    h2 { border: 2px solid orange; }
+    #myDiv { border: 3px solid blue; }
+</style>
+
+</head>
+<body>
+    <h2>Java Web 프로그램 관련</h2>
+    <a href="#">Java</a>
+    <a href="#">JavaScript</a>
+    <a href="#">JSP</a>
+    <a href="#">Spring</a>
+    <hr>
+    <p class="myClass">1장~~~~~~~~~</p>
+    <div>내용 ...</div>
+    
+    <p class="myClass">2장~~~~~~~~~</p>
+    <div>내용 ...</div>
+    
+    <p class="myClass">3장~~~~~~~~~</p>
+    <div>내용 ...</div>
+    
+    <hr>
+    <div id="myDiv">
+        <p>안녕하세요</p>
+        <p>반갑습니다</p>
+        <p>또만나요</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>animate, clearQueue</title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        // h1 태그를 우측으로 300px 만큼, 3초 동안 이동 후 되돌아오기 
+       $("#run").click(function(){
+           $("h1").animate({"margin-left": "300px"}, 3000)
+            .animate({"margin-left": "0px"}, 3000);
+       }); 
+        
+        // stop 처리(한번)
+        $("#stop").click(function(){
+           $("h1").stop(); // 현재 진행중인 동작 멈춤(중지)
+       }); 
+         // 두번 연속 stop 처리
+        $("#stop-stop").click(function(){
+           $("h1").stop().stop(); // 멈춤 2회 처리
+       }); 
+        // 예정된 작업만 취소 - 큐(Queue)에 저장된 예약동작 취소
+        $("#clearQueue").click(function(){
+           $("h1").clearQueue(); // 큐(Queue)에 저장된 작업을취소
+       }); 
+        // 예정된 작업만 취소하고 진행중인 작업도 중단
+        $("#clearQueueStop").click(function(){
+            // 현재 동작을 중단시크는 순간 큐에 저장된 동작이 바로 실행됨
+            //$("h1").stop().clearQueue(); // 현재동작중단 이후 큐에 있는 예정동작 취소
+            
+            // 예정동작 취소 + 현재동작 중단
+           $("h1").clearQueue().stop();
+       }); 
+        
+        // 예정된 작업만 취소하고 진행중인 작업도 중단
+        // stop 처리시 clearQueue  설정을 true처리
+        $("#stop-true").click(function(){
+           $("h1").stop(true); 
+       }); 
+    });
+</script>
+<style>
+    h1 { margin-left: 0px; }
+</style>
+</head>
+<body>
+    <button id="run">run</button>
+    <button id="stop">stop</button>
+    <button id="stop-stop">stop stop</button>
+    <button id="clearQueue">clearQueue</button>
+    <button id="clearQueueStop">clearQueue + stop</button>
+    <button id="stop-true">stop(true)</button>
+    <hr>
+    <h1>abcde</h1>
+</body>
+
+</html>

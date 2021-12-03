@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>롤링배너</title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    * { margin: 0; padding: 0; }
+    h2 {text-align: center; }
+    #banner-wrap {
+        width: 600px;
+        border: 1px solid #aaa;
+        padding: 20px;
+        margin: 50px auto;
+    }
+    #frame { 
+        width: 600px;
+        position: relative;
+        overflow: hidden;
+    }
+    #banner { width: 3000px; }
+    li img { width: 200px; }
+    li {
+        list-style: none;
+        float: left;
+        width: 200px;
+    }
+    #banner-a { text-decoration: none; }
+    #banner-wrap p {
+        text-align: center;
+        clear: both;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        // 앞의 이미지 3개를 복사해서 맨 뒤에 붙이기 
+        
+        let $list = $("#banner");
+        $list.append($("#banner>li:lt(3)").clone());
+        // next 좌측마진 값에서 -200 처리 
+        
+        let clickCnt = 0;
+         // next : 좌측마진 값에서 -200 처리
+        $("#next").click(function(){
+            console.log("next 클릭 시작 clickCnt : " + clickCnt);
+            if (clickCnt >= 5) { //맨 마지막까지 보여준 경우
+                clickCnt = 0;
+                $list.css("margin-left", "0px");
+            }
+            
+            clickCnt++;
+            console.log("next 클릭 1증가후 clickCnt : " + clickCnt);
+            $list.animate({"margin-left": -200 * clickCnt + "px"}, 1000);
+        });
+        
+        
+        // (실습) prev : 이전버튼 클릭시 처리
+        $("#prev").click(function(){
+            $list.stop(true);
+            console.log("prev 클릭 시작 clickCnt : " + clickCnt);
+            
+            if(clickCnt <= 0) {
+                clickCnt = 5;
+                $list.css("margin-left", -(200 * clickCnt) + "px");
+            }
+            
+            clickCnt--;
+            console.log("prev 클릭 1감소 후 clickCnt : " + clickCnt);
+            $list.animate({"margin-left": -200 * clickCnt + "px"}, 1000);
+        });
+    });
+    
+</script>
+
+    
+    
+</head>
+<body>
+    <h2>롤링 슬라이드 배너 만들기</h2>
+    <hr>
+    <div id="banner-wrap">
+        <div id="frame">
+            <ul id="banner">
+                <li><a href="#"><img src="images/pic_1.jpg"></a></li>
+                <li><a href="#"><img src="images/pic_2.jpg"></a></li>
+                <li><a href="#"><img src="images/pic_3.jpg"></a></li>
+                <li><a href="#"><img src="images/pic_4.jpg"></a></li>  
+                <li><a href="#"><img src="images/pic_5.jpg"></a></li>
+            </ul>
+        </div>
+        <p>
+            <a href="#" id="prev">
+                <img src="images/prev_btn.png">
+            </a>
+            <span>이동하기</span>
+            <a href="#" id="next">
+                <img src="images/next_btn.png">
+            </a>
+        </p>
+    </div>
+    
+</body>
+
+</html>

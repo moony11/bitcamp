@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>자동차 견적</title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    #carZone {
+        width: 600px;
+        margin: auto;
+        /*border: 1px solid black;*/
+    }
+    h1 { text-align: center; }
+    #car {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    #car th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+    #car thead { background-color: gray; }
+    #totalTxt { background-color: gray; }
+    #total {
+        border: none;
+        text-align: center;
+        font-size: 1.5em;
+        background-color: white;
+    }
+</style>  
+<script>
+    //(실습) jQuery를 사용해서 자동차견적을 구하세요
+    $(document).ready(function(){
+        $("#opt1").change(function(){
+            console.log("checked : " + this.checked); // true, false
+            console.log("JQ prop : " + $(this).prop("checked")); // true, false
+            console.log("JQ after : " + $(this).after("checked")); // undefined, checked
+
+            
+            
+            // 현재 차량금액 확인
+            let totalValue = parseInt($("#total").val());
+            let totalValue = 
+            // 체크상태면 값을 합산, 체크해제면 빼기 처리
+            // 방법 1
+            if($(this).prop("checked")){
+                totalValue += parseInt($(this).val());
+            } else {
+                totalValue -= parseInt($(this).val());
+            }
+            // 방법 2 (자바스크립트 방식)
+            if(this.checked){
+                totalValue += parseInt(this.value);
+            } else {
+                totalValue -= parseInt(this.value);
+            }    
+
+
+                // 최종 차량 가액 회면 표시
+            $("#total").val(totalValue);
+        });
+
+           
+    });
+    
+    $().ready(function(){
+        
+        $("#opt1").change(fnComputerOption);
+        $("#opt2").change(fnComputerOption);
+        $("#opt3").change(fnComputerOption);
+
+        $(".opt").change(fnComputerOption);
+    });
+    
+    function fnComputerOption(){
+        console.log("checked : " + this.checked); // true, false
+        console.log("JQ prop : " + $(this).prop("checked")); // true, false
+        console.log("JQ after : " + $(this).after("checked")); // undefined, checked
+
+            
+            
+         // 현재 차량금액 확인
+        let totalValue = parseInt($("#total").val());
+        let totalValue = 
+        // 체크상태면 값을 합산, 체크해제면 빼기 처리
+        // 방법 1
+        if($(this).prop("checked")){
+            totalValue += parseInt($(this).val());
+        } else {
+            totalValue -= parseInt($(this).val());
+        }
+        // 방법 2 (자바스크립트 방식)
+        if(this.checked){
+            totalValue += parseInt(this.value);
+        } else {
+            totalValue -= parseInt(this.value);
+        }    
+        // 최종 차량 가액 회면 표시
+        $("#total").val(totalValue);
+    }
+</script>
+</head>
+<body>
+<div id="carZone">   
+	<h1>자동차 견적(jQuery)</h1>
+    <p><img src="images/car1.jpg" alt="자동차이미지"></p>
+    <table id="car">
+        <colgroup>
+            <col width="50%"> 
+            <col width="30%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>옵션</th>
+                <th>추가가격</th>
+                <th>옵션선택</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>인조가죽시트</td>
+                <td>300000</td>
+                <td>
+                    <input type="checkbox" value="300000" id="opt1" class="opt" name="opt1">
+                </td>
+            </tr>
+            <tr>
+                <td>네비게이션</td>
+                <td>400000</td>
+                <td>
+                    <input type="checkbox" value="400000" id="opt2" class="opt" name="opt2" >
+                </td>
+            </tr>
+            <tr>
+                <td>썬루프</td>
+                <td>500000</td>
+                <td>
+                    <input type="checkbox" value="500000" id="opt3" class="opt" name="opt3">
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td id="totalTxt">차량금액(옵션포함)</td>
+                <td colspan="2">
+                    <input type="text" value="20000000" id="total" readonly>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+    
+        
+	<br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

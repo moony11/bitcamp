@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // filter(선택자) : 선택자에 매칭되는 jQuery 객체
+    // end() : 이전 상태로 되돌아감
+    $().ready(function(){
+        /*
+        $("img").css("border", "1px solid red"); 
+        $("img").filter("[title *= 'JSP']").css("border-width", "5px");  // JSP 가 속해있으면
+        $("img").filter("[title $= 'a']").css("border-width", "10px");  // a로 끝나면
+        $("img").filter("[title ^= 'Sp']").css("border-width", "15px");  // Sp로 시작하면
+        
+        
+        $("img").addClass("red-border");
+        $("img").filter("[title *= 'JSP']").addClass("bd-wifth5");
+        $("img").filter("[title $= 'a']").addClass("bd-wifth10");
+        $("img").filter("[title ^= 'Sp']").addClass("bd-wifth15");
+        
+        // removeClass() : 클래스명 삭제 
+        $("img").filter("[title ^= 'Sp']").removeClass("bd-wifth15");
+        
+        
+        // jQuery 객체를 변수에 저장해서 재사용(객체생성 최소화)   
+        let $imgs = $("img"); // 변수명 앞에 $ 사용 - jQuery 객체 저장된 변수 의미
+        $imgs.addClass("red-border");
+        $imgs.filter("[title *= 'JSP']").addClass("bd-wifth5");
+        $imgs.filter("[title $= 'a']").addClass("bd-wifth10");
+        $imgs.filter("[title ^= 'Sp']").addClass("bd-wifth15");
+        $imgs.filter("[title ^= 'Sp']").removeClass("bd-wifth15");
+        $imgs.filter("[title ^= 'Sp']").css("border", "15px solid blue");
+*/
+        //체이닝 방식으로 작성
+        $("img").addClass("red-border")
+            .filter("[title *= 'JSP']").addClass("bd-width5")
+            .end() // end() : 이전 상태로 되돌아감
+            .filter("[title $= 'a']").addClass("bd-width10").end()
+            .filter("[title ^= 'Sp']").addClass("bd-width15").end()
+            .filter("[title ^= 'Sp']").removeClass("bd-width15").end()
+            .filter("[title ^= 'Sp']").css("border", "15px solid blue");
+        
+    });
+</script>
+<style>
+    .red-border { border: 1px solid red; }
+    .bd-wifth5 { border-width: 5px; }
+    .bd-wifth10 { border-width: 10px; }
+    .bd-wifth15 { border-width: 15px; }
+</style>
+</head>
+<body>
+    <img src="#" title="JSP" alt="JSP">
+    <img src="#" title="Java" alt="Java">
+    <img src="#" title="Spring" alt="Spring">
+    
+</body>
+
+</html>

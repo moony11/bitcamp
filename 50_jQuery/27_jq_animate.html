@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>animate</title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+       // animate ({속성값}, 밀리초) : 위치만큼 이동(밀리초 동안)
+        // (주의) 움직임처리시 스타일 position 설정 변경할 것 
+        $("#go").click(function(){
+           console.log("go click~~");
+            $("#myDiv").animate({left: "+=200", top: "+=200"}, 3000);
+        });
+        $("#back").click(function(){
+           console.log("back click~~");
+            $("#myDiv").animate({left: "-=200", top: "-=200"}, 3000);
+        });
+        $("#stop").click(function(){
+           console.log("stop click~~");
+            $("#myDiv").stop(); // 현재 진행중인 동작을 취소(멈춤)
+        });
+    });
+    
+</script>   
+<style>
+    #myDiv { position: absolute; }
+</style>
+</head>
+<body>
+    <button id="go">이동</button>
+    <button id="back">반대로이동</button>
+    <button id="stop">정지</button>
+    <hr>
+    <div id="myDiv">
+       <img src="images/image1.gif">
+    </div>
+    
+    
+</body>
+</html>
+
+
+
+
+
+

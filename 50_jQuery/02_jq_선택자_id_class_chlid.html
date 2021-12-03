@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .bg-aqua { background-color: aqua; }
+    .bg-yellow { background-color: yellow; }
+    
+    .red { color: red; }
+    .green { color: green; }
+    .blue { color: blue; }
+    
+    .horizotal {
+        float: left;
+        list-style: none;
+        margin: 10px;
+    }
+    .clear { clear: both; }
+    .sizeUp { font-size: 1.5em; }
+    .bold { font-weight: bold; }
+</style>
+<script>
+    // jQuery 사용으로 문서가 준비된 후  
+    $(function(){
+        // 요소 (element) 선택자(요소명) : 해당태그 선택
+        // li 태그를 찾고 배경색 지정
+        //$("li").css("background-color", "aqua");
+        //$("li").css("background-color", "yellow");
+        
+        // 태그명으로 찾고 클래스명 추가
+        $("li").addClass("bg-yellow");
+        
+        // 클래스명으로 선택(.) : 해당 클래스명 가진 요소 선택
+        $(".js").addClass("red");
+        
+        // 아이디로 선택(#) : 해당아이디명 가진 요소 선택
+        $("#jsp").addClass("green");
+        //------------------------------------------------
+        
+        // 자식, 자손 태그 컨드롤 
+        // 자식(자녀) 선택 (>) : 하위 자녀 요소 선택 
+        $("ul>li").addClass("horizotal");
+        $("hr").addClass("clear");
+        
+        // 자손 선택자 (빈칸) : 부모태그 + 빈칸 + 찾을태그 
+        $("div p").addClass("sizeUp");
+        
+        $("div>p").addClass("bold");
+        $("div>p").css("border", "2px solid blue");
+        
+        $("div > div > p").addClass("blue");
+    });
+</script>
+</head>
+<body>
+    <ul>
+        <li>Java</li>
+        <li>HTML &amp; CSS3</li>
+        <li class="js">JavaScript &amp; jQuery</li>
+        <li id="jsp">Servlet &amp; JSP</li>
+    </ul>
+    <hr>
+    <ol>
+        <li>Java</li>
+        <li>HTML &amp; CSS3</li>
+        <li class="js">JavaScript &amp; jQuery</li>
+        <li>Servlet &amp; JSP</li>
+    
+    </ol>
+    <hr>
+    <div>
+        <p>div &gt; p태그</p>
+        <div>
+            <span>
+                <p>div-div-span-p태그</p>
+            </span>
+            <span>div-div-span태그</span>
+        </div>
+        <div>
+            <p>div-div-p태그</p>
+        </div>
+        <p>div-p태그</p>
+    </div>
+    
+</body>
+
+</html>
